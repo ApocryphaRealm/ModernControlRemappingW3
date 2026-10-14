@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Unbind Vanilla Controls (Witcher 3) - SCRATCH PROBE 6, not a release. Answered from input.settings only.
+     Probe 5: a park on a stick axis lands and round-trips - but a button action on an axis may fire when the stick moves.
+     The game's key enum also names IK_Pad_First and IK_Pad_Last (the pad range's ends; no button sends them):
+     F: CameraLock RS -> IK_Pad_Last (park only: does it land?)
+     G: TrackQuest RS -> IK_Pad_Last -> RS (does it come back?)
+     H: Jump Y -> IK_Pad_First (park only)
+     I: OpenMeditation X -> IK_Pad_First -> X (does it come back?) -->
+<UserConfig>
+	<Group builder="Input" id="UvcPadProbe6" displayName="hidden" tags="keybinds" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var builder="Input" id="ProbeCameraLock" displayName="hidden" displayType="INPUTPAD" actions="CameraLock"/>
+			<Var builder="Input" id="ProbeTrackQuest" displayName="hidden" displayType="INPUTPAD" actions="TrackQuest"/>
+			<Var builder="Input" id="ProbeJump" displayName="hidden" displayType="INPUTPAD" actions="Jump"/>
+			<Var builder="Input" id="ProbeOpenMeditation" displayName="hidden" displayType="INPUTPAD" actions="OpenMeditation"/>
+		</VisibleVars>
+	</Group>
+	<Group id="UvcPadProbe6State" displayName="hidden" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var id="ProbeRan" displayName="UvcProbeRan" displayType="TOGGLE"/>
+		</VisibleVars>
+	</Group>
+</UserConfig>

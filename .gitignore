@@ -1,0 +1,7 @@
+__pycache__/
+build/
+dist/Mods/modUnbindVanillaControls/content/blob0.bundle
+dist/Mods/modUnbindVanillaControls/content/metadata.store
+# CD PROJEKT RED-derived files, generated from the game by tools/gen_menu.py - kept out of the public repo (2026-10-14)
+dist/bin/config/r4game/user_config_matrix/pc/input.xml
+dist/Mods/modUnbindVanillaControls/content/*.w3strings

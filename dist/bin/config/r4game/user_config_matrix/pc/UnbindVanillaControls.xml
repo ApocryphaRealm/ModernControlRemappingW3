@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Modern Control Remapping - its page in Settings > Mods. TapSprintDodge: tap Sprint to dodge, hold it to run, in and out
+     of combat (the owner, 2026-10-06). The script reads an unset value as on. -->
+<UserConfig>
+	<Group id="UnbindVanillaControls" displayName="Mods.UnbindVanillaControls">
+		<VisibleVars>
+			<Var id="TapSprintDodge" displayName="UvcTapSprintDodge" displayType="TOGGLE"/>
+		</VisibleVars>
+	</Group>
+</UserConfig>

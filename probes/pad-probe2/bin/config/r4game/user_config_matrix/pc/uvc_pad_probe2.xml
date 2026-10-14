@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Unbind Vanilla Controls (Witcher 3) - SCRATCH PROBE 2, not a release. Which value format does an INPUTPAD row take?
+     Probe 1 set "IK_Pad_DigitLeft;IK_None" and the pad lines became IK_None. Hidden from Settings. -->
+<UserConfig>
+	<Group builder="Input" id="UvcPadProbe2" displayName="hidden" tags="keybinds" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var builder="Input" id="ReadJump" displayName="hidden" displayType="INPUTPAD" actions="Jump"/>
+			<Var builder="Input" id="ReadHorseDismount" displayName="hidden" displayType="INPUTPAD" actions="HorseDismount"/>
+			<Var builder="Input" id="SetSpawnHorse" displayName="hidden" displayType="INPUTPAD" actions="SpawnHorse"/>
+			<Var builder="Input" id="SetCameraLock" displayName="hidden" displayType="INPUTPAD" actions="CameraLock"/>
+			<Var builder="Input" id="SetHorseJump" displayName="hidden" displayType="INPUTPAD" actions="HorseJump"/>
+			<Var builder="Input" id="ReadJumpPC" displayName="hidden" displayType="INPUTPC" actions="Jump"/>
+		</VisibleVars>
+	</Group>
+	<Group id="UvcPadProbe2State" displayName="hidden" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var id="ProbeRan" displayName="UvcProbeRan" displayType="TOGGLE"/>
+		</VisibleVars>
+	</Group>
+</UserConfig>

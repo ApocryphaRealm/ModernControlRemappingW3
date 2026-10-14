@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Unbind Vanilla Controls (Witcher 3) - SCRATCH PROBE 4, not a release. Checked in input.settings (the FILE), not by read-back:
+     A: SpawnHorse's pad lines are IK_None - set IK_Pad_LeftThumb: does a line get written?
+     B: CameraLock IK_Pad_RightThumb -> IK_PS4_OPTIONS (park) -> IK_Pad_RightThumb: is the file back on RS? -->
+<UserConfig>
+	<Group builder="Input" id="UvcPadProbe4" displayName="hidden" tags="keybinds" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var builder="Input" id="ProbeSpawnHorse" displayName="hidden" displayType="INPUTPAD" actions="SpawnHorse"/>
+			<Var builder="Input" id="ProbeCameraLock" displayName="hidden" displayType="INPUTPAD" actions="CameraLock"/>
+		</VisibleVars>
+	</Group>
+	<Group id="UvcPadProbe4State" displayName="hidden" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var id="ProbeRan" displayName="UvcProbeRan" displayType="TOGGLE"/>
+		</VisibleVars>
+	</Group>
+</UserConfig>

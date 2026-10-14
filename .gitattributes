@@ -1,0 +1,4 @@
+*.xml -text
+*.ws -text
+*.ini -text
+*.w3strings binary

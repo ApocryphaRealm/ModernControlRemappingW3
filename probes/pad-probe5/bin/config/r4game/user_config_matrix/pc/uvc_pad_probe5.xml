@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Unbind Vanilla Controls (Witcher 3) - SCRATCH PROBE 5, not a release. Answered from input.settings (the FILE) only -
+     probe 4 showed read-backs are wrong both ways. A pad write lands only when the action's current pad key is an Xbox key.
+     C: CameraLock RS -> IK_Pad_LeftAxisX (park on a stick AXIS, a key the Xbox layout knows): does the file take it?
+     D: TrackQuest RS -> IK_Pad_LeftAxisX -> IK_Pad_RightThumb: from the axis park, does a write come back?
+     E: SprintToggle (keyboard and pad both IK_None) through a KEYBOARD-type (INPUTPC) row, value IK_Pad_LeftThumb: does the
+        keyboard writer put a pad key on an IK_None line where the pad writer would not? -->
+<UserConfig>
+	<Group builder="Input" id="UvcPadProbe5" displayName="hidden" tags="keybinds" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var builder="Input" id="ProbeCameraLock" displayName="hidden" displayType="INPUTPAD" actions="CameraLock"/>
+			<Var builder="Input" id="ProbeTrackQuest" displayName="hidden" displayType="INPUTPAD" actions="TrackQuest"/>
+			<Var builder="Input" id="ProbePcSprintToggle" displayName="hidden" displayType="INPUTPC" actions="SprintToggle"/>
+		</VisibleVars>
+	</Group>
+	<Group id="UvcPadProbe5State" displayName="hidden" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var id="ProbeRan" displayName="UvcProbeRan" displayType="TOGGLE"/>
+		</VisibleVars>
+	</Group>
+</UserConfig>

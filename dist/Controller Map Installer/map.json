@@ -1,0 +1,2202 @@
+{
+ "name": "Modern Control Map",
+ "rules": [
+  {
+   "context": "BASE_ALL_ATTACKS",
+   "action": "AttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=AttackHeavy)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_ALL_ATTACKS",
+   "action": "AttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=AttackLight)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_ALL_ATTACKS",
+   "action": "SpecialAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=SpecialAttackHeavy,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_ALL_ATTACKS",
+   "action": "SpecialAttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=SpecialAttackLight,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_ATTACKS_NO_LIGHT",
+   "action": "AttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=AttackHeavy)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_ATTACKS_NO_LIGHT",
+   "action": "SpecialAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=SpecialAttackHeavy,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_ATTACK_HEAVY",
+   "action": "AttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=AttackHeavy)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_ATTACK_LIGHT",
+   "action": "AttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=AttackLight)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_CharacterMovementWithSprint",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_CharacterMovementWithSprint",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "SilverSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SilverSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "SteelSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SteelSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS",
+   "action": "SwordSheathe",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SwordSheathe,State=Duration,IdleTime=0.3)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "BASE_DRAW_SWORDS_KEYBOARD",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS_KEYBOARD",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS_KEYBOARD",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS_KEYBOARD",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRAW_SWORDS_KEYBOARD",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "BASE_DRAW_SWORDS_KEYBOARD",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "BASE_DRINK_POTIONS",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRINK_POTIONS",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRINK_POTIONS",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRINK_POTIONS",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_DRINK_POTIONS",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "BASE_DRINK_POTIONS",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "BASE_FocusMode",
+   "action": "Focus",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=Focus,Reprocess)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Items",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Items",
+   "action": "ThrowItemHold",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItemHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_SHOW_RADIAL_MENU",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_SPECIAL_ATTACK_HEAVY",
+   "action": "SpecialAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=SpecialAttackHeavy,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_SPECIAL_ATTACK_LIGHT",
+   "action": "SpecialAttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=SpecialAttackLight,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Signs",
+   "action": "CastSign",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=CastSign)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Signs",
+   "action": "CastSignHold",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=CastSignHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Signs",
+   "action": "SelectAard",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=SelectAard)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Signs",
+   "action": "SelectAxii",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=SelectAxii)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Signs",
+   "action": "SelectIgni",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=SelectIgni)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Signs",
+   "action": "SelectQuen",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=SelectQuen)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BASE_Signs",
+   "action": "SelectYrden",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SelectYrden)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Boat",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Boat",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Boat",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Boat",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Boat",
+   "action": "Focus",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=Focus,Reprocess)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Boat",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Boat",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Boat",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BoatPassenger",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BoatPassenger",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BoatPassenger",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BoatPassenger",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BoatPassenger",
+   "action": "Focus",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=Focus,Reprocess)"
+   ],
+   "none": []
+  },
+  {
+   "context": "BoatPassenger",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "BoatPassenger",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "BoatPassenger",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "AltQuenCasting",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=AltQuenCasting)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Combat",
+   "action": "AttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=AttackHeavy)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "AttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=AttackLight)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "CastSign",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=CastSign)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "CastSignHold",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=CastSignHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)",
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)",
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)",
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)",
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "LockAndGuard",
+   "pad": [
+    "IK_Pad_LeftShoulder=(Action=LockAndGuard)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Combat",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Combat",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SelectAard",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=SelectAard)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SelectAxii",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=SelectAxii)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SelectIgni",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=SelectIgni)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SelectQuen",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=SelectQuen)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SelectYrden",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SelectYrden)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SilverSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SilverSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SpawnHorse",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SpawnHorse)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Combat",
+   "action": "SpecialAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=SpecialAttackHeavy,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SpecialAttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=SpecialAttackLight,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Combat",
+   "action": "SteelSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SteelSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "SwordSheathe",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SwordSheathe,State=Duration,IdleTime=0.3)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Combat",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat",
+   "action": "ThrowItemHold",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItemHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "AttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=AttackLight)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "CiriAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=CiriAttackHeavy)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "CiriSpecialAttack",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=CiriSpecialAttack)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "CiriSpecialAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=CiriSpecialAttackHeavy,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "LockAndGuard",
+   "pad": [
+    "IK_Pad_LeftShoulder=(Action=LockAndGuard)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Combat_Replacer_Ciri",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "DiveDown",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=DiveDown)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "DiveUp",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=DiveUp)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "ExplorationInteraction",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=ExplorationInteraction)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "Focus",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=Focus,Reprocess)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Diving",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Diving",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Diving",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Diving",
+   "action": "ThrowItemHold",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItemHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "AltQuenCasting",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=AltQuenCasting)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Exploration",
+   "action": "AttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=AttackHeavy)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "AttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=AttackLight)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "CastSign",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=CastSign)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "CastSignHold",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=CastSignHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)",
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)",
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)",
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)",
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "ExplorationInteraction",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=ExplorationInteraction)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "Focus",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=Focus,Reprocess)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "Jump",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=Jump)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Exploration",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Exploration",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "Roll",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=Roll)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Exploration",
+   "action": "SelectAard",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=SelectAard)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SelectAxii",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=SelectAxii)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SelectIgni",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=SelectIgni)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SelectQuen",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=SelectQuen)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SelectYrden",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SelectYrden)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SilverSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SilverSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SpecialAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=SpecialAttackHeavy,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SpecialAttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=SpecialAttackLight,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Exploration",
+   "action": "SteelSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SteelSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "SwordSheathe",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SwordSheathe,State=Duration,IdleTime=0.3)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Exploration",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration",
+   "action": "ThrowItemHold",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=ThrowItemHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "AttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=AttackLight)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "CiriAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=CiriAttackHeavy)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "CiriSpecialAttack",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=CiriSpecialAttack)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "CiriSpecialAttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=CiriSpecialAttackHeavy,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "ExplorationInteraction",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=ExplorationInteraction)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "Focus",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=Focus,Reprocess)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "Jump",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=Jump)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "Roll",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=Roll)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Exploration_Replacer_Ciri",
+   "action": "ThrowItemHold",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItemHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "Canter",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Canter)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)",
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)",
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)",
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)",
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "Focus",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=Focus,Reprocess)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "Follow",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Follow)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "Gallop",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Gallop,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "HorseDismount",
+   "pad": [
+    "IK_Pad_A_CROSS=(Action=HorseDismount,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "HorseJump",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=HorseJump)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Horse",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Horse",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "SilverSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SilverSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "SteelSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SteelSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse",
+   "action": "SwordSheathe",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SwordSheathe,State=Duration,IdleTime=0.3)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Horse",
+   "action": "VehicleAttack",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=VehicleAttack)"
+   ],
+   "none": [
+    {
+     "line": "IK_None=(Action=VehicleAttack)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Horse",
+   "action": "VehicleCastSign",
+   "pad": [
+    "IK_Pad_LeftTrigger=(Action=VehicleCastSign)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse_Replacer_Ciri",
+   "action": "Canter",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Canter)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse_Replacer_Ciri",
+   "action": "Follow",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Follow)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse_Replacer_Ciri",
+   "action": "Gallop",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Gallop,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse_Replacer_Ciri",
+   "action": "HorseJump",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=HorseJump)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse_Replacer_Ciri",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Horse_Replacer_Ciri",
+   "action": "VehicleAttack",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=VehicleAttack)"
+   ],
+   "none": [
+    {
+     "line": "IK_None=(Action=VehicleAttack)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "JumpClimb",
+   "action": "DiveDown",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=DiveDown)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)",
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)",
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)",
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)",
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "ExplorationInteraction",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=ExplorationInteraction)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "Jump",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=Jump)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "JumpClimb",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "JumpClimb",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "Roll",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=Roll)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "JumpClimb",
+   "action": "SilverSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SilverSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "JumpClimb",
+   "action": "SteelSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SteelSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "JumpClimb",
+   "action": "SwordSheathe",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SwordSheathe,State=Duration,IdleTime=0.3)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "RadialMenu",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "RadialMenu",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "RadialMenu",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "RadialMenu",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "RadialMenu",
+   "action": "LockAndGuard",
+   "pad": [
+    "IK_Pad_LeftShoulder=(Action=LockAndGuard)"
+   ],
+   "none": []
+  },
+  {
+   "context": "RadialMenu",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "RadialMenu",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "RadialMenu",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "SCENE_IS_STARTING_HACK",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "SCENE_IS_STARTING_HACK",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "ScriptedAction",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ScriptedAction",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Swimming",
+   "action": "DiveDown",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=DiveDown)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "DiveUp",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=DiveUp)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "ExplorationInteraction",
+   "pad": [
+    "IK_Pad_Y_TRIANGLE=(Action=ExplorationInteraction)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "Focus",
+   "pad": [
+    "IK_Pad_DigitUp=(Action=Focus,Reprocess)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Swimming",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "Swimming",
+   "action": "RadialMenu",
+   "pad": [
+    "IK_Pad_DigitDown=(Action=RadialMenu)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "Swimming",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "Swimming",
+   "action": "ThrowItemHold",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItemHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "ThrowHold",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "ThrowHold",
+   "action": "SilverSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SilverSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "ThrowHold",
+   "action": "SteelSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SteelSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "SwordSheathe",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SwordSheathe,State=Duration,IdleTime=0.3)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "ThrowHold",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHold",
+   "action": "ThrowItemHold",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItemHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "AttackHeavy",
+   "pad": [
+    "IK_Pad_RightTrigger=(Action=AttackHeavy)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "AttackLight",
+   "pad": [
+    "IK_Pad_RightShoulder=(Action=AttackLight)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "DrinkPotion1",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotion1)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "DrinkPotion2",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotion2)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "DrinkPotionLowerHold",
+   "pad": [
+    "IK_Pad_DigitRight=(Action=DrinkPotionLowerHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "DrinkPotionUpperHold",
+   "pad": [
+    "IK_Pad_DigitLeft=(Action=DrinkPotionUpperHold,State=Duration,IdleTime=0.3)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "OilSilver",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSilver,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "OilSteel",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=OilSteel,State=Duration,IdleTime=0.3)",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "SilverSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SilverSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "Sprint",
+   "pad": [
+    "IK_Pad_B_CIRCLE=(Action=Sprint)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "SprintToggle",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SprintToggle)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "SteelSword",
+   "pad": [
+    "IK_Pad_X_SQUARE=(Action=SteelSword)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "SwordSheathe",
+   "pad": [],
+   "none": [
+    {
+     "line": "IK_None=(Action=SwordSheathe,State=Duration,IdleTime=0.3)",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "ThrowItem",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItem)"
+   ],
+   "none": []
+  },
+  {
+   "context": "ThrowHoldChain",
+   "action": "ThrowItemHold",
+   "pad": [
+    "IK_Pad_LeftThumb=(Action=ThrowItemHold,State=Duration,IdleTime=0.2)"
+   ],
+   "none": []
+  }
+ ],
+ "settings": [
+  {
+   "section": "Controls",
+   "key": "LeftStickSprint",
+   "value": "false"
+  },
+  {
+   "section": "Gameplay",
+   "key": "EnableAlternateSignCasting",
+   "value": "1"
+  }
+ ]
+}

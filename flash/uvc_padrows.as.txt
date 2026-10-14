@@ -1,0 +1,588 @@
+      // ================================================================================================================
+      // Unbind Vanilla Controls - CONTROLLER ROWS under the controller diagram (Settings > Controller Scheme).
+      // One row per control used in the tab on show; the script sends every row through "ingamemenu.uvc.padrows"
+      // (label, the pad key it has, its tag and a bit per tab it belongs to). Up/Down (D-pad, left stick, right stick)
+      // choose a row; A starts a change and the next pad button is the new key; Start or Esc cancels a change.
+      // UNBIND = A, then the button the row already has (the owner, 2026-10-14: "if you select the same button that's
+      // already bound to it, it should unbind it"). It is the row's off switch in the tab on show (9000 + tab), never a
+      // cleared binding: the game cannot write a pad button over IK_None, so a truly cleared row could never be bound
+      // again (2026-10-06). The row then shows "-"; A and ANY button binds it again - the switch goes back on, and a new
+      // button is written over the binding it kept. Rows without an off switch (controls the game does not handle one by
+      // one) cannot be unbound: the same button changes nothing there. A row whose control has no Xbox button in the
+      // game's mapping comes marked "locked": dim, and A does not open it. The change goes to the script's
+      // OnChangeKeybind with the row's tag; the script answers with the rows again, and the changed row is drawn in gold.
+      //
+      // Placement (1.0.0's first run put the list under the module's full bounds, which reach the bottom of the screen
+      // through elements the diagram does not show): the list is a child of the MENU, placed at fixed parts of the
+      // screen (UVC_LIST_TOP..UVC_LIST_BOTTOM of its height), and the page is scaled so the VISIBLE diagram ends above it.
+      // ================================================================================================================
+
+      protected var uvcRows:Array = null;
+      protected var uvcPanel:Sprite = null;
+      protected var uvcVisibleRows:Array = null;
+      protected var uvcSel:int = 0;
+      protected var uvcTop:int = 0;
+      protected var uvcCapturing:Boolean = false;
+      protected var uvcHint:String = "";
+      protected var uvcOffWord:String = "Off";
+      protected var uvcBaseX:Number = NaN;
+      protected var uvcBaseY:Number = NaN;
+      protected var uvcBaseScale:Number = 1;
+      protected var uvcLaidOut:Boolean = false;
+      protected var uvcConfirmTag:uint = 0;
+      // after a change ends, the rest of that press is swallowed until this time (getTimer ms): one D-pad press arrives as
+      // its pad code AND as a Left/Right navigation event, and the second one changed the tab (the owner, 2026-10-06:
+      // "if I press the D-pad to bind or unbind ... it changes the context ... from like combat to horse riding")
+      protected var uvcSwallowUntil:int = 0;
+      protected var uvcWidth:Number = 900;
+      protected var uvcRowH:Number = 40;
+      protected static const UVC_ROWS_SHOWN:int = 7;
+      protected static const UVC_DIAGRAM_BOTTOM:Number = 0.6;
+      protected static const UVC_LIST_TOP:Number = 0.63;
+      protected static const UVC_LIST_BOTTOM:Number = 0.9;
+
+      protected function uvcRegister() : void
+      {
+         dispatchEvent(new GameEvent(GameEvent.REGISTER,"ingamemenu.uvc.padrows",[this.uvcHandleRows]));
+         dispatchEvent(new GameEvent(GameEvent.REGISTER,"ingamemenu.uvc.padhint",[this.uvcHandleHint]));
+         dispatchEvent(new GameEvent(GameEvent.REGISTER,"ingamemenu.uvc.padoff",[this.uvcHandleOffWord]));
+      }
+
+      protected function uvcHandleOffWord(param1:String) : void
+      {
+         this.uvcOffWord = param1;
+         this.uvcDraw();
+      }
+
+      // the row is off in the tab on show (Y)
+      protected function uvcIsOffHere(param1:Object) : Boolean
+      {
+         return (int(param1.offTabs) & 1 << this.selectedIndex) != 0;
+      }
+
+      protected function uvcHandleHint(param1:String) : void
+      {
+         this.uvcHint = param1;
+         this.uvcDraw();
+      }
+
+      protected function uvcHandleRows(param1:Object, param2:int = -1) : void
+      {
+         this.uvcRows = param1 as Array;
+         this.uvcCapturing = false;
+         this.uvcRefresh(false);
+      }
+
+      // the rows of the tab on show
+      protected function uvcRowsForTab() : Array
+      {
+         var _loc1_:Array = [];
+         var _loc2_:Object = null;
+         if(this.uvcRows)
+         {
+            for each(_loc2_ in this.uvcRows)
+            {
+               if(_loc2_ && (int(_loc2_.tabs) & 1 << this.selectedIndex) != 0)
+               {
+                  _loc1_.push(_loc2_);
+               }
+            }
+         }
+         return _loc1_;
+      }
+
+      // tab changed (true) or new data (false)
+      protected function uvcRefresh(param1:Boolean) : void
+      {
+         this.uvcVisibleRows = this.uvcRowsForTab();
+         if(param1)
+         {
+            this.uvcSel = 0;
+            this.uvcTop = 0;
+            this.uvcCapturing = false;
+            this.uvcConfirmTag = 0;
+         }
+         if(this.uvcSel >= this.uvcVisibleRows.length)
+         {
+            this.uvcSel = Math.max(0,this.uvcVisibleRows.length - 1);
+         }
+         this.uvcDraw();
+      }
+
+      protected function uvcTextFormat(param1:int) : TextFormat
+      {
+         var _loc2_:TextFormat = null;
+         if(this.txtLayoutName)
+         {
+            _loc2_ = this.txtLayoutName.getTextFormat();
+         }
+         else
+         {
+            _loc2_ = new TextFormat("$NormalFont");
+         }
+         _loc2_.size = param1;
+         _loc2_.align = "left";
+         return _loc2_;
+      }
+
+      protected function uvcMakeText(param1:String, param2:uint, param3:Number, param4:Number, param5:Number) : TextField
+      {
+         var _loc6_:TextField = new TextField();
+         _loc6_.defaultTextFormat = this.uvcTextFormat(Math.max(14,int(this.uvcRowH * 0.55)));
+         _loc6_.embedFonts = this.txtLayoutName ? Boolean(this.txtLayoutName.embedFonts) : true;
+         _loc6_.selectable = false;
+         _loc6_.mouseEnabled = false;
+         _loc6_.multiline = false;
+         _loc6_.wordWrap = false;
+         _loc6_.width = param5;
+         _loc6_.height = this.uvcRowH;
+         _loc6_.x = param3;
+         _loc6_.y = param4;
+         _loc6_.htmlText = param1;
+         _loc6_.textColor = param2;
+         return _loc6_;
+      }
+
+      // the pad button's short name, shown only while the page is used with keyboard and mouse
+      protected function uvcKeyName(param1:int) : String
+      {
+         switch(param1)
+         {
+            case KeyCode.PAD_A_CROSS: return "A";
+            case KeyCode.PAD_B_CIRCLE: return "B";
+            case KeyCode.PAD_X_SQUARE: return "X";
+            case KeyCode.PAD_Y_TRIANGLE: return "Y";
+            case KeyCode.PAD_START: return "Start";
+            case KeyCode.PAD_BACK_SELECT: return "Back";
+            case KeyCode.PAD_DIGIT_UP: return "D-pad Up";
+            case KeyCode.PAD_DIGIT_DOWN: return "D-pad Down";
+            case KeyCode.PAD_DIGIT_LEFT: return "D-pad Left";
+            case KeyCode.PAD_DIGIT_RIGHT: return "D-pad Right";
+            case KeyCode.PAD_LEFT_THUMB: return "LS";
+            case KeyCode.PAD_RIGHT_THUMB: return "RS";
+            case KeyCode.PAD_LEFT_SHOULDER: return "LB";
+            case KeyCode.PAD_RIGHT_SHOULDER: return "RB";
+            case KeyCode.PAD_LEFT_TRIGGER: return "LT";
+            case KeyCode.PAD_RIGHT_TRIGGER: return "RT";
+         }
+         return "";
+      }
+
+      protected function uvcMakeIcon(param1:int) : InputFeedbackButton
+      {
+         var _loc2_:Class = null;
+         var _loc3_:InputFeedbackButton = null;
+         if(param1 <= 0)
+         {
+            return null;
+         }
+         try
+         {
+            _loc2_ = getDefinitionByName("InputFeedbackButton_nonclickableRef") as Class;
+            _loc3_ = new _loc2_() as InputFeedbackButton;
+            if(_loc3_)
+            {
+               _loc3_.setDataFromStage("",-1,param1);
+            }
+         }
+         catch(e:Error)
+         {
+            _loc3_ = null;
+         }
+         return _loc3_;
+      }
+
+      // the screen's height in the menu's units (Scaleform's stage height), 1080 if there is no stage yet
+      protected function uvcScreenH() : Number
+      {
+         return stage && stage.stageHeight > 0 ? Number(stage.stageHeight) : 1080;
+      }
+
+      // what the diagram really shows, in the menu's coordinates: visible children with something in them
+      protected function uvcVisibleBounds() : Rectangle
+      {
+         var _loc1_:Rectangle = null;
+         var _loc2_:int = 0;
+         var _loc3_:DisplayObject = null;
+         var _loc4_:Rectangle = null;
+         while(_loc2_ < numChildren)
+         {
+            _loc3_ = getChildAt(_loc2_);
+            _loc2_++;
+            if(!_loc3_ || !_loc3_.visible || _loc3_.alpha <= 0 || _loc3_ == this.uvcPanel)
+            {
+               continue;
+            }
+            if(_loc3_ is TextField && TextField(_loc3_).text == "")
+            {
+               continue;
+            }
+            _loc4_ = _loc3_.getBounds(parent);
+            if(_loc4_.width <= 0 || _loc4_.height <= 0)
+            {
+               continue;
+            }
+            _loc1_ = _loc1_ ? _loc1_.union(_loc4_) : _loc4_;
+         }
+         return _loc1_;
+      }
+
+      // where the panel goes, and the page's scale: run when the page shows (a frame after it, so the frame's children exist)
+      protected function uvcLayout() : void
+      {
+         var _loc1_:Rectangle = null;
+         var _loc2_:Number = NaN;
+         var _loc3_:Number = NaN;
+         var _loc4_:Number = NaN;
+         var _loc5_:Point = null;
+         var _loc6_:Point = null;
+         if(!parent)
+         {
+            return;
+         }
+         if(isNaN(this.uvcBaseX))
+         {
+            this.uvcBaseX = x;
+            this.uvcBaseY = y;
+            this.uvcBaseScale = scaleX;
+         }
+         x = this.uvcBaseX;
+         y = this.uvcBaseY;
+         scaleX = scaleY = this.uvcBaseScale;
+         if(!this.uvcPanel)
+         {
+            this.uvcPanel = new Sprite();
+         }
+         if(this.uvcPanel.parent != parent)
+         {
+            parent.addChild(this.uvcPanel);
+         }
+         _loc4_ = this.uvcScreenH();
+         _loc5_ = parent.globalToLocal(new Point(0,_loc4_ * UVC_DIAGRAM_BOTTOM));
+         _loc1_ = this.uvcVisibleBounds();
+         if(_loc1_ && _loc1_.bottom > _loc5_.y && _loc1_.bottom > _loc1_.top)
+         {
+            _loc2_ = (_loc5_.y - _loc1_.top) / (_loc1_.bottom - _loc1_.top);
+            _loc2_ = Math.max(0.45,Math.min(1,_loc2_));
+            _loc3_ = _loc1_.left + _loc1_.width / 2;
+            scaleX = scaleY = this.uvcBaseScale * _loc2_;
+            x = _loc3_ - (_loc3_ - this.uvcBaseX) * _loc2_;
+            y = _loc1_.top - (_loc1_.top - this.uvcBaseY) * _loc2_;
+            _loc1_ = this.uvcVisibleBounds();
+         }
+         _loc5_ = parent.globalToLocal(new Point(0,_loc4_ * UVC_LIST_TOP));
+         _loc6_ = parent.globalToLocal(new Point(0,_loc4_ * UVC_LIST_BOTTOM));
+         if(!_loc1_)
+         {
+            _loc1_ = new Rectangle(_loc5_.x + 600,_loc5_.y,900,10);
+         }
+         this.uvcWidth = Math.max(500,Math.min(_loc1_.width,1000));
+         this.uvcPanel.x = _loc1_.left + (_loc1_.width - this.uvcWidth) / 2;
+         this.uvcPanel.y = _loc5_.y;
+         this.uvcRowH = (_loc6_.y - _loc5_.y) / (UVC_ROWS_SHOWN + 1);
+         this.uvcPanel.visible = true;
+         this.uvcLaidOut = true;
+         this.uvcDraw();
+      }
+
+      protected function uvcLayoutNextFrame(param1:Event) : void
+      {
+         removeEventListener(Event.ENTER_FRAME,this.uvcLayoutNextFrame);
+         this.uvcLayout();
+      }
+
+      protected function uvcResetLayout() : void
+      {
+         if(!isNaN(this.uvcBaseX))
+         {
+            x = this.uvcBaseX;
+            y = this.uvcBaseY;
+            scaleX = scaleY = this.uvcBaseScale;
+         }
+         if(this.uvcPanel)
+         {
+            this.uvcPanel.visible = false;
+         }
+         this.uvcCapturing = false;
+         this.uvcLaidOut = false;
+      }
+
+      protected function uvcDraw() : void
+      {
+         var _loc1_:Number = this.uvcWidth;
+         var _loc2_:int = 0;
+         var _loc3_:int = 0;
+         var _loc4_:Object = null;
+         var _loc5_:Number = NaN;
+         var _loc6_:Boolean = false;
+         var _loc7_:Sprite = null;
+         var _loc8_:InputFeedbackButton = null;
+         var _loc9_:uint = 0;
+         var _loc10_:Boolean = false;
+         var _loc11_:Number = this.uvcRowH;
+         if(!this.uvcPanel || !this.uvcLaidOut)
+         {
+            return;
+         }
+         while(this.uvcPanel.numChildren > 0)
+         {
+            this.uvcPanel.removeChildAt(0);
+         }
+         this.uvcPanel.graphics.clear();
+         if(!this.uvcVisibleRows)
+         {
+            this.uvcVisibleRows = this.uvcRowsForTab();
+         }
+         this.uvcPanel.graphics.lineStyle(1,0x9C7A4C,0.8);
+         this.uvcPanel.graphics.moveTo(0,0);
+         this.uvcPanel.graphics.lineTo(_loc1_,0);
+         if(this.uvcVisibleRows.length == 0)
+         {
+            return;
+         }
+         if(this.uvcSel < this.uvcTop)
+         {
+            this.uvcTop = this.uvcSel;
+         }
+         if(this.uvcSel >= this.uvcTop + UVC_ROWS_SHOWN)
+         {
+            this.uvcTop = this.uvcSel - UVC_ROWS_SHOWN + 1;
+         }
+         _loc10_ = InputManager.getInstance().isGamepad();
+         this.uvcPanel.addChild(this.uvcMakeText(this.uvcCapturing ? "[[press_any_key_to_bind_message]]" + String(this.uvcVisibleRows[this.uvcSel].label) : this.uvcHint,this.uvcCapturing ? 0xE0C080 : 0xB0B0B0,0,_loc11_ * 0.1,_loc1_));
+         _loc3_ = Math.min(this.uvcVisibleRows.length,this.uvcTop + UVC_ROWS_SHOWN);
+         _loc2_ = this.uvcTop;
+         while(_loc2_ < _loc3_)
+         {
+            _loc4_ = this.uvcVisibleRows[_loc2_];
+            _loc5_ = _loc11_ * (_loc2_ - this.uvcTop + 1);
+            _loc6_ = _loc2_ == this.uvcSel;
+            _loc9_ = uint(_loc4_.tag) == this.uvcConfirmTag && this.uvcConfirmTag != 0 ? 0xE0C080 : (_loc6_ ? 0xFFFFFF : 0x9A9A9A);
+            if((this.uvcIsOffHere(_loc4_) || _loc4_.locked) && _loc9_ != 0xE0C080)
+            {
+               _loc9_ = _loc6_ ? 0x9A9A9A : 0x5E5E5E;
+            }
+            _loc7_ = new Sprite();
+            _loc7_.y = _loc5_;
+            _loc7_.graphics.beginFill(0xFFFFFF,_loc6_ ? 0.16 : 0.001);
+            _loc7_.graphics.drawRect(0,0,_loc1_,_loc11_ - 2);
+            _loc7_.graphics.endFill();
+            if(_loc6_)
+            {
+               _loc7_.graphics.beginFill(0xC9A35A,1);
+               _loc7_.graphics.drawRect(0,0,4,_loc11_ - 2);
+               _loc7_.graphics.endFill();
+            }
+            _loc7_.name = String(_loc2_);
+            _loc7_.buttonMode = true;
+            _loc7_.mouseChildren = false;
+            _loc7_.addEventListener(MouseEvent.CLICK,this.uvcRowClicked,false,0,true);
+            _loc7_.addChild(this.uvcMakeText(String(_loc4_.label),_loc9_,12,_loc11_ * 0.1,_loc1_ * 0.74));
+            if(this.uvcCapturing && _loc6_)
+            {
+               _loc7_.addChild(this.uvcMakeText("...",0xE0C080,_loc1_ * 0.8,_loc11_ * 0.1,_loc1_ * 0.2));
+            }
+            else if(this.uvcIsOffHere(_loc4_))
+            {
+               // unbound in this tab
+               _loc7_.addChild(this.uvcMakeText("-",0x707070,_loc1_ * 0.8,_loc11_ * 0.1,_loc1_ * 0.2));
+            }
+            else if(int(_loc4_.key) > 0)
+            {
+               _loc8_ = _loc10_ ? this.uvcMakeIcon(int(_loc4_.key)) : null;
+               if(_loc8_)
+               {
+                  _loc8_.x = _loc1_ * 0.88;
+                  _loc8_.y = _loc11_ / 2;
+                  _loc7_.addChild(_loc8_);
+               }
+               else
+               {
+                  _loc7_.addChild(this.uvcMakeText(this.uvcKeyName(int(_loc4_.key)),_loc9_,_loc1_ * 0.8,_loc11_ * 0.1,_loc1_ * 0.2));
+               }
+            }
+            else
+            {
+               _loc7_.addChild(this.uvcMakeText("-",0x707070,_loc1_ * 0.8,_loc11_ * 0.1,_loc1_ * 0.2));
+            }
+            this.uvcPanel.addChild(_loc7_);
+            _loc2_++;
+         }
+         if(this.uvcTop > 0)
+         {
+            this.uvcPanel.addChild(this.uvcMakeText("^",0xC9A35A,_loc1_ + 6,_loc11_,30));
+         }
+         if(_loc3_ < this.uvcVisibleRows.length)
+         {
+            this.uvcPanel.addChild(this.uvcMakeText("v",0xC9A35A,_loc1_ + 6,_loc11_ * UVC_ROWS_SHOWN,30));
+         }
+      }
+
+      protected function uvcRowClicked(param1:MouseEvent) : void
+      {
+         var _loc2_:int = int((param1.currentTarget as Sprite).name);
+         if(this.uvcCapturing)
+         {
+            return;
+         }
+         if(_loc2_ == this.uvcSel)
+         {
+            this.uvcStartCapture();
+         }
+         else
+         {
+            this.uvcSel = _loc2_;
+            this.uvcConfirmTag = 0;
+            this.uvcDraw();
+         }
+      }
+
+      protected function uvcStartCapture() : void
+      {
+         if(this.uvcVisibleRows && this.uvcSel < this.uvcVisibleRows.length && !this.uvcVisibleRows[this.uvcSel].locked)
+         {
+            this.uvcCapturing = true;
+            this.uvcConfirmTag = 0;
+            this.uvcDraw();
+         }
+      }
+
+      protected function uvcCancel() : Boolean
+      {
+         if(this.uvcCapturing)
+         {
+            this.uvcCapturing = false;
+            this.uvcDraw();
+            return true;
+         }
+         return false;
+      }
+
+      protected function uvcMove(param1:int) : void
+      {
+         var _loc2_:int = Math.max(0,Math.min(this.uvcVisibleRows.length - 1,this.uvcSel + param1));
+         if(_loc2_ != this.uvcSel)
+         {
+            this.uvcSel = _loc2_;
+            this.uvcConfirmTag = 0;
+            this.uvcDraw();
+         }
+      }
+
+      // a pad button code for a change, or 0: the triggers may arrive as their axis codes
+      protected function uvcCaptureCode(param1:InputDetails) : int
+      {
+         if(param1.code >= KeyCode.PAD_A_CROSS && param1.code <= KeyCode.PAD_RIGHT_TRIGGER)
+         {
+            return param1.code;
+         }
+         if(param1.code == KeyCode.PAD_LEFT_TRIGGER_AXIS || param1.navEquivalent == NavigationCode.GAMEPAD_L2)
+         {
+            return KeyCode.PAD_LEFT_TRIGGER;
+         }
+         if(param1.code == KeyCode.PAD_RIGHT_TRIGGER_AXIS || param1.navEquivalent == NavigationCode.GAMEPAD_R2)
+         {
+            return KeyCode.PAD_RIGHT_TRIGGER;
+         }
+         return 0;
+      }
+
+      // true when the panel took the event
+      protected function uvcHandleInput(param1:InputEvent) : Boolean
+      {
+         var _loc2_:InputDetails = param1.details;
+         var _loc3_:Boolean = _loc2_.value == InputValue.KEY_UP;
+         var _loc4_:Object = null;
+         var _loc5_:int = 0;
+         // the off-switch code (9000 + tab) as an int: "9000 + this.selectedIndex" sent straight in the call array reached
+         // the script as the FLOAT's bit pattern (owner's run, 2026-10-14: "has no off switch in tab 1175223512" = 9000.0f)
+         var _loc6_:int = 0;
+         if(!visible || !this.uvcLaidOut || !this.uvcVisibleRows || this.uvcVisibleRows.length == 0)
+         {
+            return false;
+         }
+         if(getTimer() < this.uvcSwallowUntil)
+         {
+            param1.handled = true;
+            return true;
+         }
+         if(this.uvcCapturing)
+         {
+            if(_loc3_)
+            {
+               _loc5_ = this.uvcCaptureCode(_loc2_);
+               if(_loc2_.code == KeyCode.ESCAPE || _loc2_.code == KeyCode.PAD_START)
+               {
+                  this.uvcSwallowUntil = getTimer() + 250;
+                  this.uvcCancel();
+               }
+               else if(_loc5_ > 0)
+               {
+                  _loc4_ = this.uvcVisibleRows[this.uvcSel];
+                  this.uvcCapturing = false;
+                  this.uvcSwallowUntil = getTimer() + 250;
+                  this.uvcConfirmTag = uint(_loc4_.tag);
+                  _loc6_ = int(9000 + int(this.selectedIndex));
+                  if(this.uvcIsOffHere(_loc4_))
+                  {
+                     // unbound here: any button binds it again - the off switch goes back on, then the new button
+                     dispatchEvent(new GameEvent(GameEvent.CALL,"OnChangeKeybind",[uint(_loc4_.tag),_loc6_]));
+                     if(_loc5_ != int(_loc4_.key))
+                     {
+                        dispatchEvent(new GameEvent(GameEvent.CALL,"OnChangeKeybind",[uint(_loc4_.tag),_loc5_]));
+                     }
+                  }
+                  else if(_loc5_ == int(_loc4_.key))
+                  {
+                     // the button it already has: unbind in this tab (its off switch - the binding stays, see the header)
+                     if(_loc4_.gate)
+                     {
+                        dispatchEvent(new GameEvent(GameEvent.CALL,"OnChangeKeybind",[uint(_loc4_.tag),_loc6_]));
+                     }
+                  }
+                  else
+                  {
+                     dispatchEvent(new GameEvent(GameEvent.CALL,"OnChangeKeybind",[uint(_loc4_.tag),_loc5_]));
+                  }
+                  this.uvcDraw();
+               }
+            }
+            param1.handled = true;
+            return true;
+         }
+         if(param1.handled)
+         {
+            return false;
+         }
+         // moving: on press and while held (the left stick sends no key-up), D-pad, left stick or right stick
+         if(!_loc3_)
+         {
+            if(_loc2_.navEquivalent == NavigationCode.UP || _loc2_.navEquivalent == NavigationCode.RIGHT_STICK_UP || _loc2_.code == KeyCode.PAD_RIGHT_STICK_UP)
+            {
+               this.uvcMove(-1);
+               param1.handled = true;
+               return true;
+            }
+            if(_loc2_.navEquivalent == NavigationCode.DOWN || _loc2_.navEquivalent == NavigationCode.RIGHT_STICK_DOWN || _loc2_.code == KeyCode.PAD_RIGHT_STICK_DOWN)
+            {
+               this.uvcMove(1);
+               param1.handled = true;
+               return true;
+            }
+            return false;
+         }
+         switch(_loc2_.navEquivalent)
+         {
+            case NavigationCode.UP:
+            case NavigationCode.DOWN:
+            case NavigationCode.RIGHT_STICK_UP:
+            case NavigationCode.RIGHT_STICK_DOWN:
+               param1.handled = true;
+               return true;
+            case NavigationCode.GAMEPAD_A:
+               this.uvcStartCapture();
+               param1.handled = true;
+               return true;
+         }
+         return false;
+      }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Unbind Vanilla Controls (Witcher 3) - SCRATCH PROBE, not a release. Does an INPUTPAD row rebind a controller key the
+     way an INPUTPC row on the Key Bindings page rebinds a keyboard key? Both groups are hidden from Settings. -->
+<UserConfig>
+	<Group builder="Input" id="UvcPadProbe" displayName="hidden" tags="keybinds" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var builder="Input" id="ProbeSpawnHorse" displayName="ControlLayout_SummonHorse" displayType="INPUTPAD" actions="SpawnHorse"/>
+		</VisibleVars>
+	</Group>
+	<Group id="UvcPadProbeState" displayName="hidden" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var id="ProbeRan" displayName="UvcProbeRan" displayType="TOGGLE"/>
+		</VisibleVars>
+	</Group>
+</UserConfig>

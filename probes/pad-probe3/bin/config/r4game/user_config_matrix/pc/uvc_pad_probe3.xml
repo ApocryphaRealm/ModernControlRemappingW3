@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Unbind Vanilla Controls (Witcher 3) - SCRATCH PROBE 3, not a release. After an INPUTPAD row is set to IK_None, can it be
+     given a pad button again? And can a row be "parked" on a pad-family key no PC pad sends, and come back from there? -->
+<UserConfig>
+	<Group builder="Input" id="UvcPadProbe3" displayName="hidden" tags="keybinds" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var builder="Input" id="ProbeSpawnHorse" displayName="hidden" displayType="INPUTPAD" actions="SpawnHorse"/>
+			<Var builder="Input" id="ProbeCameraLock" displayName="hidden" displayType="INPUTPAD" actions="CameraLock"/>
+			<Var builder="Input" id="ProbeHorseJump" displayName="hidden" displayType="INPUTPAD" actions="HorseJump"/>
+		</VisibleVars>
+	</Group>
+	<Group id="UvcPadProbe3State" displayName="hidden" visibilityCondition="hideAlways">
+		<VisibleVars>
+			<Var id="ProbeRan" displayName="UvcProbeRan" displayType="TOGGLE"/>
+		</VisibleVars>
+	</Group>
+</UserConfig>
