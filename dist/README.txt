@@ -3,6 +3,13 @@ Witcher III Modding Tool, developed and released by CD PROJEKT RED
 Modern Control Remapping (The Witcher 3: Wild Hunt)
 Version 0.0.0
 
+MODERN CONTROL MAP IS NOW MODERN CONTROL REMAPPING
+This is the new version of Modern Control Map. It carries that mod's controller layout and its controls (tap or hold
+Sprint, one button for both swords, gallop on B and dismount on A, the sign buttons) by itself, and adds the Key
+Bindings and Controller Scheme features below. If Modern Control Map is installed, remove it and install this file in
+its place - do not run both: both scripts would act on one press. A controller map you installed with Modern Control
+Map stays in your settings; you do not need to install it again.
+
 The Witcher 3's Key Bindings page gives one key to several actions at once, cannot leave a control with no key from
 the keyboard, and does not let menu keys and gameplay keys differ. This mod changes that page. There is no other menu
 and no settings file: everything is on Options > Key Bindings.
@@ -88,8 +95,8 @@ Patch 5.0 (Remastered) only. No other mod required.
 COMPATIBILITY
 Replaces the game's input.xml (the list of rows on the Key Bindings page): another mod that replaces it too wins or
 loses by install order. The scripts wrap functions of the game's in-game menu, player input and HUD with annotations,
-so they merge with other script mods without Script Merger. Do not use it together with Modern Control Map's script:
-this mod carries that mod's behaviour, and both would act on one press.
+so they merge with other script mods without Script Merger. Do not keep Modern Control Map installed beside it:
+this mod is its new version and carries its behaviour, and both would act on one press.
 
 UNINSTALL
 Remove the mod. Rows that do not exist in the game's own list go back to the game's linked rows the next time the game

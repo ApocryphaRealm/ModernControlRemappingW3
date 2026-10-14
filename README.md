@@ -1,8 +1,9 @@
 # Modern Control Remapping (The Witcher 3: Wild Hunt)
 
-Formerly "Unbind Vanilla Controls" (renamed before its first release, 2026-10-14). Internal names - the
-`modUnbindVanillaControls` folder, the script files, the `UnbindVanillaControls` settings group and log channel - are
-kept, so saved settings and existing installs carry over.
+The new version of [Modern Control Map](https://github.com/ApocryphaRealm/ModernControlMapW3) (Nexus: The Witcher 3
+mod 13679), which it replaces: it carries that mod's controller map and controls and adds the Key Bindings and
+Controller Scheme work, developed as "Unbind Vanilla Controls". Internal names - the `modUnbindVanillaControls` folder,
+the script files, the `UnbindVanillaControls` settings group and log channel - are kept, so saved settings carry over.
 
 The Witcher 3's Key Bindings page, made to unbind, unlink and separate controls - in the game's own page, nothing else.
 

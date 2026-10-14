@@ -7,6 +7,11 @@ Rule 61: this mod's own history, kept beside the code it describes.
 > number; at `.9` the MINOR rolls. The next number is LAST WORKING + 1; failed/scratch/
 > untested numbers are reused. Numbers come from version-gate.ps1.
 
+## 1.0.1 - 2026-10-14 - untested
+
+### Changed
+- Modern Control Map is now Modern Control Remapping (the owner, 2026-10-14: 'Modern control remapping should be an update to modern control map mod that we already posted. So just rename it and update the mod page to match the new file.'). This version is the Unbind Vanilla Controls (Witcher 3) 1.0.0 build tested by the owner, renamed: it carries Modern Control Map's map and controls itself (no separate script) and adds Key Bindings (clear any key, split linked rows, menu keys apart, panel shortcuts unlocked, one Draw/Sheathe row) and the Controller Scheme list (view per context, rebind, unbind by pressing the bound button). Users of Modern Control Map replace it with this file - never both. Version gate: key ModernControlMapW3 (Nexus 13679), last posted 1.0.0, so 1.0.1; the development record stays under UnbindVanillaControlsW3 1.0.0.
+
 ## 1.0.0 - 2026-10-06 - working
 
 **Recorded working 2026-10-14** (version gate, against the installed "unbind fix" build, 34 artefacts byte-identical to the
